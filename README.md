@@ -1,6 +1,6 @@
 # Product Microservice
 
-This is a dockerized microservice for products
+This is a dockerized microservice for products. This service captures product basic information and stores them in a mongo database. You can also upload the image (jpg,png or jpeg) of the product.
 
 ## Setup
 
