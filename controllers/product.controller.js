@@ -9,7 +9,7 @@ exports.getAllProducts = (req, res) => {
         .then((data) => {
             res.status(200).json(data);
         }).catch((error) => {
-            res.status(400).json({ error });
+            res.status(500).json({ error });
         })
 }
 
@@ -29,17 +29,17 @@ exports.createProduct = (req, res) => {
         description: req.body.description,
         price: req.body.price,
         category: req.body.category,
-        image: {
-            data: url + '/uploads/' + req.file.filename, 
-            contentType: req.file.mimetype,
-            size: req.file.size
-        },
+        // image: {
+        //     data: url + '/uploads/' + req.file.filename, 
+        //     contentType: req.file.mimetype,
+        //     size: req.file.size
+        // },
         color: req.body.color
     });
     product.save().then((data) => {
         res.status(201).json(data)
     }).catch((err) => {
-        res.status(400).json({
+        res.status(500).json({
             error: err
         });
     });
@@ -55,6 +55,6 @@ exports.getProductById = (req, res) => {
         .then((data) => {
             res.status(200).json(data);
         }).catch((error) => {
-            res.status(400).json({error:error.message});
+            res.status(500).json({error:error.message});
         })
 }
